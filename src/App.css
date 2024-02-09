@@ -1,38 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: digital;
+}
+
+@font-face {
+    font-family: digital;
+    src: url("fonts/digital.ttf");
+}
+
 .App {
-  text-align: center;
+    height: 100vh;
+    background: linear-gradient(to left top, #202020, black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.calculator {
+    width: 50vh;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-radius: 15px;
+    background: linear-gradient(black, black, #053016);
+    border: 7px groove black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.resultat {
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(#053016, black);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    border-radius: 15px;
+    border: 3px outset gray;
+    font-size: 50px;
+    color: white;
+    padding: 2rem;
+    overflow: hidden;
+    position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.resultat>span {
+    -webkit-box-reflect: below -10px linear-gradient(transparent, #053016);
 }
 
-.App-link {
-  color: #61dafb;
+.resultat::before {
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 5%;
+    height: 200%;
+    background: snow;
+    filter: blur(70px);
+    animation: anim 5s ease infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes anim {
+    to {
+        left: 150%;
+    }
+}
+
+.buttons {
+    width: 100%;
+    height: 70%;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    overflow: hidden;
+}
+
+.buttons>button {
+    width: 24.7%;
+    height: 19.7%;
+    font-size: 31px;
+    cursor: pointer;
+    border: 2px outset black;
+    background: linear-gradient(to top, #212121, black);
+    color: snow;
+    border-radius: 15px;
+    box-shadow: 0 0 4px #04335e, 0 0 4px #212121, 0 0 4px #b1b1b1;
+}
+
+.buttons>button:active {
+    border: 2px inset black;
+}
+
+.buttons>button:nth-of-type(17) {
+    width: 100%;
 }
